@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant User
+    participant form as "notes_form"
+    participant sendToServer as "sendToServer()"
+    participant Server
+
+    User->>form: Submit form
+    form->>form: Prevent default form submission
+    form->>User: Clear form input
+    form->>form: Redraw notes
+    form->>sendToServer: Send note to server
+    sendToServer->>Server: Perform POST request
+    Server-->>sendToServer: Return response
+    sendToServer-->>form: Continue execution
