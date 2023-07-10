@@ -1,0 +1,27 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    activate server
+    server-->>browser: Html Document 
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: Cascading style sheet file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    activate server
+    server-->>browser: Javacript file 
+    deactivate server
+
+    Note right of browser: The browser begins runing the javascript file to help get the json from server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: json document [{"content": "hola hola hola :3","date": "2023-07-10T15:48:35.321Z"}....] 
+    deactivate server
+
+    Note right of browser: The browser that is the client run the callback function that display the notes
