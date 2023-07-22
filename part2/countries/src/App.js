@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import DisplayCountry from './components/DisplayCountry'
 import DisplayCountries from './components/DisplayCountries'
+import InputSection from './components/InputSection'
 
 
 function App() {
@@ -106,8 +107,8 @@ function App() {
   
   return  (
     <div>
-      <div> find countries : 
-        <input value={userInput === null? '':userInput} onChange={handleChange} />
+      <div>
+        <InputSection userInput={userInput} handleChange={handleChange} />
         <div>{filteredCountries.length !==0 ?  
                   filteredCountries.length > 10?
                     'Too many matches specify another filter'
