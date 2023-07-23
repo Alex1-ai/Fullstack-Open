@@ -14,7 +14,6 @@ function App() {
   // let filteredCountries = [];
   
 
-  // const API_KEY="bf601a0572340877e5046da354ad79a7";
 
   // const getWeatherData = async (city) => {
   //   try {
