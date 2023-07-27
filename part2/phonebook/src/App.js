@@ -71,18 +71,29 @@ const App =()=> {
                 setPersons(persons.concat(returnedPerson))
                 setNewName('')
                 setNewNumber('')
-               })
+                setMessage(`Added ${newName}`)
+                setNotifyStyle('success')
+
+                setTimeout(()=>{
+                  setMessage(null)
+                  setNotifyStyle('')
+                }, 5000)
+               }).catch((err) => {
+                // setMessage(err.response.data.error)
+                console.log(err.response.data)
+                setMessage(err.response.data.error)
+                setNotifyStyle('error')
+
+                setTimeout(() => {
+                  setMessage(null)
+                  setNotifyStyle('')
+                }, 5000)
+              })
           
 
 
           // SETTING THE NOTIFICATION
-          setMessage(`Added ${newName}`)
-          setNotifyStyle('success')
-
-          setTimeout(()=>{
-            setMessage(null)
-            setNotifyStyle('')
-          }, 5000)
+          
            
           // axios
           //   .post('http://localhost:3001/persons', personObject)
