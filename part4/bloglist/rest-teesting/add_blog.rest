@@ -1,0 +1,14 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsZXgiLCJpZCI6IjY0YzkyZDRmYjY5M2Y2NTNmMmRmZTAzYyIsImlhdCI6MTY5MDkwNTk2NH0.zOmjZUt2n6opKIxGO-nly82OLDmXNw-OEyGkzhGJhGc
+
+{
+    
+    "title": "Open Source",
+    "author": "Alex1-ai",
+    "url": "https://localhost:3003/api/blogs/open-source",
+    "likes": 4,
+    "userId": "64c92d4fb693f653f2dfe03c"
+
+    
+}
