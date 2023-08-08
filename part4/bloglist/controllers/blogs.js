@@ -34,19 +34,24 @@ blogRouter.delete("/:id",middleware.userExtractor, async(request,response) => {
     const decodedToken = jwt.verify(request.token, process.env.SECRET)
     console.log(decodedToken)
     if(!decodedToken || !decodedToken.id){
+        console.log("Invalid 1")
         return response.status(401).json({
             error: "invalid or missing token"})
     }
     const userId = request.user
     console.log(userId)
+    console.log("invalid 2")
     const blog = await Blog.findById(request.params.id) 
     if(!blog){
+        console.log("Invalid 3")
         return response.status(404).json({
             error:"Blog not found"
         })
     } 
+    console.log("invalid 5")
     console.log(`blog user ${blog.user.toString()}`)
     if (userId.toString() !== blog.user.toString()){
+        console.log("invalid 6")
         return response.status(401).json({
             error: "Unauthorized user"
         })
@@ -69,12 +74,7 @@ blogRouter.delete("/:id",middleware.userExtractor, async(request,response) => {
 blogRouter.put("/:id", async(request, response)=>{
     const { likes } = request.body
 
-    // const blog = {
-    //     ...body
-    // }
-
-
-
+    
     const updatedBlog = await Blog.findByIdAndUpdate(request.params.id, { likes },{new:true})
     if (!updatedBlog) {
         response.status(404).json({

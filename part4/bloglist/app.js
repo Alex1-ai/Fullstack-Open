@@ -5,6 +5,12 @@ const app= express()
 const blogRouter = require("./controllers/blogs")
 const userRouter = require("./controllers/users")
 const loginRouter = require("./controllers/login")
+// const testingRouter = require("./controllers/testing")
+if (process.env.NODE_ENV === "test"){
+    console.log(process.env.NODE_ENV)
+    const testingRouter = require("./controllers/testing")
+    app.use("/api/testing", testingRouter)    
+}
 const logger = require("./utils/loggers")
 const middleware = require("./utils/middleware")
 const cors = require("cors")
@@ -33,6 +39,11 @@ app.use(middleware.tokenExtractor)
 app.use("/api/blogs", blogRouter)
 app.use("/api/users", userRouter)
 app.use("/api/login", loginRouter)
+// if (process.env.NODE_ENV){
+//     console.log("registering the app in port 3003")
+//     app.use("/api/testing", testingRouter)
+
+// }
 
 
 app.use(middleware.unknownEndpoint)
