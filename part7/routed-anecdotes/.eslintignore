@@ -1,0 +1,5 @@
+# Add patterns of files and directories to ignore by ESLint
+node_modules/
+build/
+dist/
+coverage/
