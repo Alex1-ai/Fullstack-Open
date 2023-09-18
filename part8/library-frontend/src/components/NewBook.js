@@ -58,19 +58,6 @@ const NewBook = (props) => {
     
 
   })
-  useSubscription(BOOK_ADDED,{
-    onData: ({ data })=>{
-      const addedBook = data.data.addedBook
-      Notify(`${addedBook.name} added`)
-
-      client.cache.updateQuery({query: BOOK_ADDED}, ({ allBooks })=>{
-        return {
-          allBooks: allBooks.concat(addedBook)
-        }
-      })
-      console.log(data)
-    }
-  })
 
 
 
