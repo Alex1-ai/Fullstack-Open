@@ -31,4 +31,4 @@ Follow these steps to get started with the program:
 
 1. Clone the repository:
    ```bash
-   git clone (https://github.com/Alex1-ai/Fullstack-Open)https://github.com/Alex1-ai/Fullstack-Open.git
+   git clone https://github.com/Alex1-ai/Fullstack-Open.git
